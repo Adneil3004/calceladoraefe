@@ -1,0 +1,192 @@
+﻿<UserControl x:Class="WpfApp1.Ventanas.CalculosEfect"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             xmlns:m="clr-namespace:EffectsViewModel;assembly=EffectsViewModel"
+             MinHeight="450" MinWidth="800" Margin="10">
+    <UserControl.Resources>
+        <m:BsCalcViewModel x:Key="BsCalcViewModel"></m:BsCalcViewModel>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding Source={StaticResource BsCalcViewModel}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"></ColumnDefinition>
+            <ColumnDefinition Width="33*"></ColumnDefinition>
+            <ColumnDefinition Width="33*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28*"></RowDefinition>
+            <RowDefinition Height="33*"></RowDefinition>
+            <RowDefinition Height="33*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border x:Name="Efectos" Margin="5" Background="White" CornerRadius="10" Grid.Column="0" Grid.Row="0">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#FFB2A4FF" Height="25" VerticalAlignment="Top" >
+                    <Label Content="No Efectos" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Border x:Name="btn3Efect" Background="White" CornerRadius="10" BorderThickness="4" BorderBrush="#FFB2A4FF" Width="80" Height="80"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="35,0,0,0"  MouseLeftButtonDown="btn3Efect_MouseLeftButtonDown" >
+                        <Label Content="3" VerticalAlignment="Center" BorderBrush="#FFB2A4FF" Foreground="#FFB2A4FF" FontSize="48" FontFamily="Segoe UI Semibold" Margin="17,0,18,0"/>
+                    </Border>
+                    <Border  x:Name="btn4Efect" Background="White" CornerRadius="10" BorderThickness="4" BorderBrush="#FFB2A4FF" Width="80" Height="80"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,35,0"  MouseLeftButtonDown="btn4Efect_MouseLeftButtonDown">
+                        <Label Content="4" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="#FFB2A4FF" Foreground="#FFB2A4FF" FontSize="48" FontFamily="Segoe UI Semibold"></Label>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name="Concentraciones"  Margin="5" Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="1">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#B2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="Concentraciones" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0" >
+                    <Label Content="Inicial XA:" Margin="10,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtXA" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="120" Text="{Binding XA, Mode=TwoWay}"
+                             Margin="120,20,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros" ></TextBox>
+                    <Label Content="Final XP:" Margin="10,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtXP" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="120" Text="{Binding XP, Mode=TwoWay}"
+                             Margin="120,60,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros" ></TextBox>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name="BaseCalculo"  Margin="5" Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="2">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#B2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="Base Calculo" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Label Content="MA kg/h*:" Margin="10,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtMA" HorizontalAlignment="Left" VerticalAlignment="Top"  Text="{Binding MA, Mode=TwoWay}"
+                             Height="25" Width="120" Margin="120,20,0,0"  BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="MP kg/h*:" Margin="10,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtMP"  HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding MP, Mode=TwoWay}"
+                             Height="25" Width="120" Margin="120,60,0,0"  BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border x:Name="tSol"  Margin="5" Background="White" CornerRadius="10" Grid.Row="1" Grid.Column="0">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#FFB2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="Tipo Solución" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Label Content="NAOH" Margin="44,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <CheckBox x:Name="chkbNAOH" IsChecked="{Binding Path=Naoh, Mode=TwoWay}" Margin="10,16,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="chkbNAOH_Checked" RenderTransformOrigin="-2.062,0.667" />
+                        <Label Content="Inorganica" Margin="44,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <CheckBox x:Name="chkbInorg" IsChecked="{Binding Path=inorg, Mode=TwoWay}" Margin="10,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="chkbInorg_Checked" RenderTransformOrigin="-3.812,0.467" />
+                    <Label Content="Organica" Margin="44,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <CheckBox x:Name="chkborg"  IsChecked="{Binding Path=organica, Mode=TwoWay}" Margin="10,72,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="chkborg_Checked" RenderTransformOrigin="-1.062,0.533" />
+                    <Label Content="PM  kg/kmol:" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtPM" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="149"
+                             Text="{Binding PM, Mode=TwoWay}" Margin="96,101,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="Tipo de Arreglo" Margin="137,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <ComboBox x:Name="cbArreglo" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="118" SelectedValue = "{Binding arreglo, UpdateSourceTrigger = PropertyChanged}"
+                              Margin="127,40,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></ComboBox>
+
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name="Presion"  Margin="5" Background="White" CornerRadius="10" Grid.Row="1" Grid.Column="1">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#B2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="Presion" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Label Content="PV  kg/cm2:" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtPV" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding PresV, Mode=TwoWay}" Margin="130,10,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="Pc  kg/cm2:" Margin="10,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtPC" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding PresC, Mode=TwoWay}" Margin="130,50,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="PEV  kg/cm2:" Margin="10,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtPEV" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding PresEV, Mode=TwoWay}" Margin="130,90,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name="Temperaturas"  Margin="5" Background="White" CornerRadius="10" Grid.Row="1" Grid.Column="2">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#B2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="Temperaturas" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Label Content="Tv°C" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtTv" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100"
+                             Text="{Binding TV, Mode=TwoWay}" Margin="130,10,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="Tc°C:" Margin="10,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtTc" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding TC, Mode=TwoWay}"  Margin="130,40,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="TA °C" Margin="10,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtTa" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100"
+                             Text="{Binding TA, Mode=TwoWay}" Margin="130,70,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="T agua °C" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtAgua" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100"
+                             Text="{Binding TW, Mode=TwoWay}"  Margin="130,100,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name="tranferencia_calor"  Margin="5" Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#B2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="Coef. de tranferencia de calor" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Label Content="U1 kcal/hm2°c*" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtU1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding u1, Mode=TwoWay}" Margin="130,10,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="U2 kcal/hm2°c*" Margin="10,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtU2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding u2, Mode=TwoWay}"  Margin="130,40,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="U3 kcal/hm2°c*" Margin="10,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtU3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding u3, Mode=TwoWay}" Margin="130,70,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label x:Name="lblU4" Content="U4 kcal/hm2°c*" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtU4" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding u4, Mode=TwoWay}" Margin="130,100,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name="T_vapor"  Margin="5" Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1">
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#B2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="Tipos de vapor" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Label Content="Tvsc °C*" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtTvsc" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding tscv, Mode=TwoWay}" Margin="130,10,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="Calidad %*" Margin="10,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtCalidad" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding calidad, Mode=TwoWay}" Margin="130,40,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="Perdidas %" Margin="10,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtPerdidas" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding perdida, Mode=TwoWay}" Margin="130,70,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="Humedad %" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtHumedad" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding humedad, Mode=TwoWay}" Margin="130,100,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name="CP"  Margin="5,5,5,5" Height="120" Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" >
+            <Grid>
+                <Border CornerRadius="10,10,0,0" Background="#B2A4FF" Height="25" VerticalAlignment="Top">
+                    <Label Content="CP" Foreground="White" FontFamily="Segoe UI Semibold" ></Label>
+                </Border>
+                <Grid Margin="0,26,0,0">
+                    <Label Content="CP=Val1x+Val2t" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+                    <Label Content="Valor 1*" Margin="10,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtval1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding val1, Mode=TwoWay}" Margin="130,30,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Label Content="Valor 2*" Margin="10,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                    <TextBox x:Name="txtVal2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" 
+                             Text="{Binding val2, Mode=TwoWay}" Margin="130,60,0,0" BorderBrush="{x:Null}" Background="#FFE6E7EA" KeyDown="Valida_soloNumeros"></TextBox>
+                    <Button Margin="1,102,-1,-47" Content="Calcular" Command="{Binding espcecialcomad}"></Button>
+                </Grid>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

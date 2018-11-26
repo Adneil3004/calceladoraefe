@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WpfApp1.Ventanas.Presentacion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.Ventanas"
+             mc:Ignorable="d">
+    <Border Margin="10" CornerRadius="10" Background="#FFFFFF">
+        <Grid>
+            <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="LOGOTIPO_IPN.png"  Width="170.986"  Margin="20"/>
+            <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="ESIQIEpresenta.PNG"  Width="170.986" Margin="20"></Image>
+            <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="quimica.png"  Height="450" Margin="50" Opacity="0.30"></Image>
+
+            <StackPanel Margin="0,20,0,0">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Instituto Politecnico Nacional" Margin="30" FontSize="35"></Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Escuela  Superior de Ingenierias &#xA;       Quimicas y Extractivas" Margin="56,10" FontSize="30"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Solucion de evaporadores de multiple efecto" Margin="40" FontSize="30"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Alumna: Diana Bernardino Chavez" Margin="120,10" FontSize="20"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Profesora: Patricia Flores Sanchez" Margin="10" FontSize="20"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Grupo: 3IV63" Margin="10" FontSize="20"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

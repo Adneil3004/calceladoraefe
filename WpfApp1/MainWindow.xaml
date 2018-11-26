@@ -1,0 +1,68 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        Background="{x:Null}" 
+        Foreground="{x:Null}" WindowStartupLocation="CenterScreen" 
+        AllowsTransparency="True" WindowStyle="None"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1100" MinWidth="720" MinHeight="480" MouseLeftButtonDown="MoveWindow_MouseLeftButtonDown"
+        Loaded="Window_Loaded">
+    <Grid Background="#FFF1E2E2">
+        <Grid Height="41"  VerticalAlignment="Top" Background="#FFFDF9F9" Panel.ZIndex="1">
+            <Grid.Effect>
+                <DropShadowEffect Color="#FFF59393" BlurRadius="5" ShadowDepth="2"/>
+            </Grid.Effect>
+            <Label  x:Name="Title" Content="Calculo de Efectos" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+            <Image HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Source="ElementosGrafico/Close.png" Width="30" MouseLeftButtonDown="Close_MouseLeftButtonDown"></Image>
+            <Border Margin="0,0,45,10" Width="30"  Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="White" MouseLeftButtonDown="Minimize_MouseLeftButtonDown" >
+                <Image Source="ElementosGrafico/Min.png" Height="13" Width="23" VerticalAlignment="Top" Margin="4,17,4,0"></Image>
+            </Border>
+        </Grid>
+        <Border Height="86" Width="86" Background="#FFFDF9F9" VerticalAlignment="Top" HorizontalAlignment="Left" CornerRadius="0,0,50,0" BorderThickness="0" BorderBrush="{x:Null}" Panel.ZIndex="1">
+            <Border.Effect>
+                <DropShadowEffect Color="#FFF9B7B7" BlurRadius="5" ShadowDepth="2" Direction="200"/>
+            </Border.Effect>
+            <Image Source="ElementosGrafico/esiqie.png" Height="63" Width="47" Margin="11.5,-6,27.5,6"></Image>
+        </Border>
+
+        <Grid >
+            <Grid Name="Division">
+               
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" >
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5C65DA" Offset="0"/>
+                            <GradientStop Color="#FF6F7CC3" Offset="0.50"/>
+                            <GradientStop Color="#FF5C65DA" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <StackPanel Margin="0,100,0,0">
+                        <DockPanel Margin="5,2,0,0" Background="#FF9E97D1" Height="50" MouseLeftButtonDown="DatosConfig_MouseLeftButtonDown_1">
+                            <Image Source="ElementosGrafico/icons8-services-24.png" Height="25" Margin="5"></Image>
+                            <Label x:Name="lblMenu1" Content="Configuración de parámetros &#xD;&#xA;calculo de efectos" FontSize="14" FontFamily="Segoe UI Semibold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" ></Label>
+                        </DockPanel>
+                        <DockPanel Margin="5,2,0,0" Background="#FF9E97D1" Height="50" MouseLeftButtonDown="ViewRes_MouseLeftButtonDown">
+                            <Image Source="ElementosGrafico/icons8-test-passed-24.png" Height="25" Margin="5" ></Image>
+                            <Label x:Name="lblMenu2" Content="Resultados Finales" FontSize="14" FontFamily="Segoe UI Semibold" Foreground="White" VerticalAlignment="Center" ></Label>
+                        </DockPanel>
+                        <DockPanel Margin="5,2,0,0" Background="#FF9E97D1" Height="50" MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+                            <Image Source="ElementosGrafico/icons8-services-24.png" Height="25" Margin="5"></Image>
+                            <Label x:Name="lblMenu3" Content="Información del software" FontSize="14" FontFamily="Segoe UI Semibold" Foreground="White" VerticalAlignment="Center" ></Label>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Margin="0,45,0,0"  x:Name="grdWindwsContainer">
+                    
+                </Grid>
+            </Grid>
+         </Grid>
+        
+    </Grid>
+</Window>

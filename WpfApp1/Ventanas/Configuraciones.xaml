@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WpfApp1.Ventanas.Configuraciones"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.Ventanas"
+             mc:Ignorable="d" 
+             Margin="10"  Height="480" Width="600">
+    <Border Background="White" CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel>
+                <Grid>
+                    
+                </Grid>
+            </DockPanel>
+        </Grid>
+        
+    </Border>
+</UserControl>
